@@ -24,6 +24,7 @@ extern const char *_GoStringPtr(_GoString_ s);
 #line 3 "main.go"
 
 #include <string.h>
+#include <stdlib.h>
 
 #line 1 "cgo-generated-wrapper"
 
@@ -87,7 +88,7 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern int KCPDial(char* addr, char* key, int dataShards, int parityShards);
+extern int KCPDial(char* addr, char* ckey, int dataShards, int parityShards);
 extern int KCPSend(int id, char* data, int length);
 extern int KCPRecv(int id, char* buf, int maxLen);
 extern void KCPClose(int id);
