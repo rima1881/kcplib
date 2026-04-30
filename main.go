@@ -15,7 +15,7 @@ var connID = 0
 
 //export KCPDial
 func KCPDial(addr *C.char, key *C.char, dataShards C.int, parityShards C.int) C.int {
-	block, _ := kcp.NewAESBlockCrypt([]byte(C.GoString(key))[:16])
+	block, err := kcp.NewAESBlockCrypt([]byte(C.GoString(key)))
 	conn, err := kcp.DialWithOptions(C.GoString(addr), block, int(dataShards), int(parityShards))
 	if err != nil {
 		return -1
